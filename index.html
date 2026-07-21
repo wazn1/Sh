@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>جوهرة وازن للذهب والمجوهرات</title>
+    <!-- FontAwesome للأيقونات -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --brand-red: #ff3b30;
+            --gold-primary: #b89146;
+            --dark-brown: #2c2416;
+            --text-gray: #5a5a5a;
+            --border-color: #e2e2dc; 
+            --bg-custom: #f7f7f5;   
+            --card-bg: #e2e2dc;
+            --up-green: #2e7d32;
+            --down-red: #c62828;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #ffffff;
+            color: var(--dark-brown);
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            padding: 20px 15px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 480px; /* تصميم مثالي للجوال */
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        /* الهيدر والعناوين */
+        .header-block {
+            text-align: center;
+            margin-bottom: 5px;
+        }
+
+        .main-title {
+            font-size: 2.2rem;
+            color: var(--brand-red);
+            font-weight: 900;
+            margin-bottom: 5px;
+        }
+
+        .sub-title {
+            font-size: 1.2rem;
+            color: var(--gold-primary);
+            font-weight: bold;
+        }
+
+        /* كروت الأسعار */
+        .ounce-card {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            padding: 12px 18px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: bold;
+        }
+
+        .ounce-label {
+            font-size: 1rem;
+            color: var(--dark-brown);
+        }
+
+        .ounce-value {
+            font-size: 1.1rem;
+            color: var(--gold-primary);
+        }
+
+        .grams-row {
+            display: flex;
+            gap: 10px;
+        }
+
+        .gram-card {
+            flex: 1;
+            background: #ffffff;
+            border: 2px solid var(--border-color);
+            border-radius: 12px;
+            padding: 12px 5px;
+            text-align: center;
+            font-weight: bold;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .gram-label {
+            color: var(--dark-brown);
+            font-size: 0.85rem;
+        }
+
+        .gram-value {
+            color: var(--gold-primary);
+            font-size: 0.95rem;
+        }
+
+        /* حركة الألوان عند تغير السعر */
+        .price-up { color: var(--up-green) !important; }
+        .price-down { color: var(--down-red) !important; }
+
+        /* الرسم البياني */
+        .chart-card {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            height: 180px;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .tradingview-widget-container {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* الكروت الكبيرة (من نحن - نبذة) */
+        .info-card {
+            border: 2px solid var(--border-color);
+            border-radius: 16px;
+            padding: 20px 15px;
+            background: #ffffff;
+            color: var(--dark-brown);
+        }
+
+        .info-card h3 {
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 8px;
+        }
+
+        .info-card p {
+            font-size: 0.95rem;
+            line-height: 1.5;
+            text-align: center;
+            color: var(--text-gray);
+        }
+
+        /* روابط مهمة */
+        .links-section {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .links-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin-bottom: 2px;
+            color: var(--dark-brown);
+        }
+
+        .link-item {
+            background-color: var(--card-bg);
+            border-radius: 6px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            color: var(--dark-brown);
+            font-weight: bold;
+            font-size: 0.95rem;
+            transition: background 0.3s ease;
+            cursor: pointer;
+        }
+
+        .link-item:hover {
+            background-color: var(--border-color);
+        }
+
+        /* أيقونات التواصل الاجتماعي */
+        .social-links {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin-top: 15px;
+            padding: 10px 0;
+        }
+
+        .social-icon {
+            color: var(--dark-brown);
+            font-size: 2.2rem;
+            text-decoration: none;
+            transition: transform 0.2s ease, color 0.2s ease;
+        }
+
+        .social-icon:hover {
+            transform: scale(1.1);
+            color: var(--gold-primary);
+        }
+
+        .update-time {
+            font-size: 0.75rem;
+            color: var(--text-gray);
+            text-align: center;
+            margin-top: -5px;
+        }
+
+        /* النوافذ المنبثقة (Modal) للشروط والخصوصية */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .modal-content {
+            background-color: #ffffff;
+            border-radius: 12px;
+            padding: 25px 20px;
+            max-width: 450px;
+            width: 100%;
+            max-height: 80vh;
+            overflow-y: auto;
+            position: relative;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        .modal-title {
+            font-size: 1.3rem;
+            color: var(--brand-red);
+            font-weight: bold;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .modal-body {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: var(--dark-brown);
+        }
+
+        .modal-body p {
+            margin-bottom: 10px;
+        }
+
+        .close-btn {
+            background-color: var(--gold-primary);
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            display: block;
+            margin: 20px auto 0;
+            font-size: 0.95rem;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- العنوان الرئيسي -->
+    <div class="header-block">
+        <h1 class="main-title">جوهرة وازن</h1>
+        <div class="sub-title">أسعار الذهب مباشرة</div>
+    </div>
+
+    <!-- أسعار الأونصة والعيارات -->
+    <div class="ounce-card">
+        <span class="ounce-label">الأونصة العالمية</span>
+        <span class="ounce-value" id="local-ounce">جاري جلب السعر...</span>
+    </div>
+
+    <div class="grams-row">
+        <div class="gram-card">
+            <span class="gram-label">ذهب عيار 24</span>
+            <span class="gram-value" id="price-g24">--</span>
+        </div>
+        <div class="gram-card">
+            <span class="gram-label">ذهب عيار 21</span>
+            <span class="gram-value" id="price-g21">--</span>
+        </div>
+        <div class="gram-card">
+            <span class="gram-label">ذهب عيار 18</span>
+            <span class="gram-value" id="price-g18">--</span>
+        </div>
+    </div>
+
+    <div class="update-time" id="update-time">تحديث فوري وتلقائي...</div>
+
+    <!-- قسم الرسم البياني -->
+    <div class="chart-card">
+        <div class="tradingview-widget-container">
+            <div id="tradingview_gold_live" style="height: 100%;"></div>
+            <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+            <script type="text/javascript">
+            new TradingView.widget({
+                "width": "100%",
+                "height": "100%",
+                "symbol": "FOREXCOM:XAUUSD",
+                "interval": "1",
+                "timezone": "Asia/Riyadh",
+                "theme": "light",
+                "style": "3",
+                "locale": "ar",
+                "enable_publishing": false,
+                "hide_legend": true,
+                "save_image": false,
+                "container_id": "tradingview_gold_live"
+            });
+            </script>
+        </div>
+    </div>
+
+    <!-- كارت من نحن -->
+    <div class="info-card">
+        <h3>من نحن</h3>
+        <p>نحن وجهتكم الأولى لعيارات الذهب والمجوهرات الراقية، نلتزم بتقديم أدق الأسعار المباشرة والمحدثة وتقديم أرقى التصاميم التي تجمع بين العراقة والجمال لنلبي كافة الأذواق وثقتكم هي أساس تميزنا.</p>
+    </div>
+
+    <!-- كارت نبذة عن المؤسسة -->
+    <div class="info-card">
+        <h3>نبذة عن المؤسسة وعنوانها</h3>
+        <p>مؤسسة جوهرة وازن للذهب والمجوهرات. يسعدنا تشريفكم لنا في فرعنا:<br>المدينة المنورة، سوق المدينة الدولي، بوابة ٣، محل رقم ٣.</p>
+    </div>
+
+    <!-- روابط مهمة -->
+    <div class="links-section">
+        <div class="links-title">روابط مهمة</div>
+        <div class="link-item" onclick="openModal('terms-modal')">الشروط والأحكام</div>
+        <div class="link-item" onclick="openModal('privacy-modal')">سياسة الخصوصية</div>
+        <a href="https://share.google/aqWvasCapJYNNSZdQ" target="_blank" class="link-item">خريطة الموقع</a>
+    </div>
+
+    <!-- أيقونات التواصل الاجتماعي -->
+    <div class="social-links">
+        <a href="https://www.instagram.com/wazn_0?igsh=MWF6dGxxZmliYWVnNA%3D%3D&utm_source=qr" target="_blank" class="social-icon" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://snapchat.com/t/HImygwZA" target="_blank" class="social-icon" title="Snapchat"><i class="fa-brands fa-snapchat"></i></a>
+        <a href="https://www.tiktok.com/@wazn_0?_r=1&_t=ZS-98CZT4sAd0S" target="_blank" class="social-icon" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+        <a href="https://wa.me/message/EAMACJJFJFBQL1" target="_blank" class="social-icon" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+    </div>
+</div>
+
+<!-- نافذة الشروط والأحكام -->
+<div id="terms-modal" class="modal">
+    <div class="modal-content">
+        <div class="modal-title">الشروط والأحكام</div>
+        <div class="modal-body">
+            <p>1. <strong>تغير الأسعار:</strong> الأسعار المعروضة حية ومتغيرة تلقائياً بناءً على مؤشرات البورصة العالمية للذهب وتخضع للتحديث المستمر.</p>
+            <p>2. <strong>تأكيد الشراء:</strong> السعر النهائي للقطع والمجوهرات يتم اعتماده لحظة الشراء الفعلية داخل المعرض أو إتمام الطلب.</p>
+            <p>3. <strong>الفواتير والضمان:</strong> تُصدر مؤسسة جوهرة وازن فواتير نظامية معتمدة توضح عيار الذهب والوزن وتفاصيل المصنعية طبقاً للأنظمة واللوائح.</p>
+            <p>4. <strong>الاسترجاع والاستبدال:</strong> تخضع عمليات الاستبدال والاسترجاع للأنظمة المحلية المتبعة في تجارة الذهب والمعادن الثمينة.</p>
+        </div>
+        <button class="close-btn" onclick="closeModal('terms-modal')">إغلاق</button>
+    </div>
+</div>
+
+<!-- نافذة سياسة الخصوصية -->
+<div id="privacy-modal" class="modal">
+    <div class="modal-content">
+        <div class="modal-title">سياسة الخصوصية</div>
+        <div class="modal-body">
+            <p>• <strong>حماية البيانات:</strong> نلتزم في مؤسسة جوهرة وازن بالحفاظ على خصوصية زوارنا وعملائنا الكرام وأمان بياناتهم الشخصية.</p>
+            <p>• <strong>استخدام المعلومات:</strong> أي بيانات يتم تزويدنا بها من خلال التواصل تُستخدم فقط لغرض تقديم الخدمة والتواصل مع العملاء ولن يتم مشاركتها مع أي أطراف خارجية.</p>
+            <p>• <strong>الأمان:</strong> نطبق أعلى معايير الأمان التقني لضمان حماية واستقرار تصفح الشاشة المباشرة والخدمات المرتبطة بها.</p>
+        </div>
+        <button class="close-btn" onclick="closeModal('privacy-modal')">إغلاق</button>
+    </div>
+</div>
+
+<script>
+    // وظائف فتح وإغلاق النوافذ المنبثقة
+    function openModal(id) {
+        document.getElementById(id).style.display = 'flex';
+    }
+
+    function closeModal(id) {
+        document.getElementById(id).style.display = 'none';
+    }
+
+    // إغلاق النافذة عند النقر خارجها
+    window.onclick = function(event) {
+        if (event.target.classList.contains('modal')) {
+            event.target.style.display = 'none';
+        }
+    }
+
+    // التحكم في الزيادة/المصنعية للعيارات
+    const customMarkup24 = 9.5;  
+    const customMarkup21 = 7.84; 
+    const customMarkup18 = 6.36; 
+
+    let lastOuncePrice = null;
+    let resetTimeout = null; 
+
+    function convertToArabicNumbers(num) {
+        const arabicNumbers = ['٠', '١', '٢', '٣', '٤', '٥', '٦', '٧', '٨', '٩'];
+        return num.toString().replace(/[0-9]/g, function (w) {
+            return arabicNumbers[+w];
+        });
+    }
+
+    async function calculateGrams() {
+        try {
+            const res = await fetch('https://api.gold-api.com/price/XAU');
+            const data = await res.json();
+            let ounceUSD = parseFloat(data.price);
+
+            if (ounceUSD && !isNaN(ounceUSD)) {
+                const usdToSar = 3.75; 
+                const ounceSAR = ounceUSD * usdToSar; 
+                
+                const pureG24 = ounceSAR / 31.1034768;
+                const pureG21 = pureG24 * 0.875;
+                const pureG18 = pureG24 * 0.75;
+
+                const g24 = pureG24 + customMarkup24;
+                const g21 = pureG21 + customMarkup21;
+                const g18 = pureG18 + customMarkup18;
+
+                let directionMarker = "";
+                let colorClass = "";
+
+                if (lastOuncePrice !== null) {
+                    if (ounceUSD > lastOuncePrice) {
+                        directionMarker = " 🔺";
+                        colorClass = "price-up";
+                    } else if (ounceUSD < lastOuncePrice) {
+                        directionMarker = " 🔻";
+                        colorClass = "price-down";
+                    }
+                }
+                
+                lastOuncePrice = ounceUSD;
+
+                const ounceTextWithMarker = convertToArabicNumbers(Math.round(ounceUSD).toLocaleString()) + " دولار" + directionMarker;
+                const ounceTextClean = convertToArabicNumbers(Math.round(ounceUSD).toLocaleString()) + " دولار";
+
+                const g24Text = convertToArabicNumbers(g24.toFixed(2)) + " ر.س";
+                const g21Text = convertToArabicNumbers(g21.toFixed(2)) + " ر.س";
+                const g18Text = convertToArabicNumbers(g18.toFixed(2)) + " ر.س";
+
+                const ounceEl = document.getElementById('local-ounce');
+                const g24El = document.getElementById('price-g24');
+                const g21El = document.getElementById('price-g21');
+                const g18El = document.getElementById('price-g18');
+
+                ounceEl.innerText = ounceTextWithMarker;
+                g24El.innerText = g24Text;
+                g21El.innerText = g21Text;
+                g18El.innerText = g18Text;
+
+                if (resetTimeout) clearTimeout(resetTimeout);
+
+                if (colorClass) {
+                    [ounceEl, g24El, g21El, g18El].forEach(el => el.classList.add(colorClass));
+
+                    resetTimeout = setTimeout(() => {
+                        ounceEl.innerText = ounceTextClean; 
+                        [ounceEl, g24El, g21El, g18El].forEach(el => {
+                            el.classList.remove('price-up', 'price-down');
+                        });
+                    }, 3000); 
+                } else {
+                    ounceEl.innerText = ounceTextClean;
+                    [ounceEl, g24El, g21El, g18El].forEach(el => {
+                        el.classList.remove('price-up', 'price-down');
+                    });
+                }
+
+                const now = new Date().toLocaleTimeString('ar-EG');
+                document.getElementById('update-time').innerText = "آخر تحديث للأسعار الحية: " + now;
+            }
+        } catch (e) {
+            console.log("جاري إعادة محاولة جلب التحديثات...");
+        }
+    }
+
+    calculateGrams();
+    setInterval(calculateGrams, 15000); 
+</script>
+
+</body>
+</html>
