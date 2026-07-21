@@ -3,20 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>جوهرة وازن للذهب والمجوهرات</title>
 
     <!-- ========================================================= -->
-    <!-- كود تتبع تحليلات قوقل (Google Analytics) -->
+    <!-- تحسينات محركات البحث (SEO Keywords & Description) -->
     <!-- ========================================================= -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7DPQS6MTJL"></script>
+    <title>جوهرة وازن | أسعار الذهب مباشرة وشاشة الذهب الحية</title>
+    <meta name="description" content="شاشة أسعار الذهب المباشرة والحية من جوهرة وازن للذهب والمجوهرات بالمدينة المنورة. متابعة أسعار أونصة الذهب وعيار 24، 21، 18 لحظة بلحظة.">
+    <meta name="keywords" content="ذهب, ذهب مباشر, شاشة ذهب, أسعار الذهب, سعر الذهب اليوم, جوهرة وازن, ذهب المدينة المنورة, عيار 21, عيار 24, أسعار الذهب المباشرة, أونصة الذهب">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="جوهرة وازن | أسعار الذهب مباشرة">
+    <meta property="og:description" content="تابع أسعار الذهب المباشرة والحية لحظة بلحظة مع جوهرة وازن للذهب والمجوهرات.">
+    <!-- ========================================================= -->
+
+    <!-- كود تتبع تحليلات قوقل (Google Analytics) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7DPQS6MTJq"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
 
-      gtag('config', 'G-7DPQS6MTJL');
+      gtag('config', 'G-7DPQS6MTJq');
     </script>
-    <!-- ========================================================= -->
 
     <!-- FontAwesome للأيقونات -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -52,14 +59,13 @@
 
         .container {
             width: 100%;
-            max-width: 480px; /* تصميم مثالي للجوال */
+            max-width: 480px;
             margin: 0 auto;
             display: flex;
             flex-direction: column;
             gap: 15px;
         }
 
-        /* الهيدر والعناوين */
         .header-block {
             text-align: center;
             margin-bottom: 5px;
@@ -78,7 +84,6 @@
             font-weight: bold;
         }
 
-        /* كروت الأسعار */
         .ounce-card {
             background-color: var(--card-bg);
             border-radius: 8px;
@@ -127,11 +132,9 @@
             font-size: 0.95rem;
         }
 
-        /* حركة الألوان عند تغير السعر */
         .price-up { color: var(--up-green) !important; }
         .price-down { color: var(--down-red) !important; }
 
-        /* الرسم البياني */
         .chart-card {
             background-color: var(--card-bg);
             border-radius: 8px;
@@ -147,7 +150,6 @@
             height: 100%;
         }
 
-        /* الكروت الكبيرة (من نحن - نبذة) */
         .info-card {
             border: 2px solid var(--border-color);
             border-radius: 16px;
@@ -170,7 +172,6 @@
             color: var(--text-gray);
         }
 
-        /* روابط مهمة */
         .links-section {
             display: flex;
             flex-direction: column;
@@ -203,7 +204,6 @@
             background-color: var(--border-color);
         }
 
-        /* أيقونات التواصل الاجتماعي */
         .social-links {
             display: flex;
             justify-content: space-around;
@@ -231,7 +231,6 @@
             margin-top: -5px;
         }
 
-        /* النوافذ المنبثقة (Modal) للشروط والخصوصية */
         .modal {
             display: none;
             position: fixed;
@@ -293,13 +292,11 @@
 <body>
 
 <div class="container">
-    <!-- العنوان الرئيسي -->
     <div class="header-block">
         <h1 class="main-title">جوهرة وازن</h1>
-        <div class="sub-title">أسعار الذهب مباشرة</div>
+        <div class="sub-title">أسعار الذهب مباشرة - شاشة الذهب الحية</div>
     </div>
 
-    <!-- أسعار الأونصة والعيارات -->
     <div class="ounce-card">
         <span class="ounce-label">الأونصة العالمية</span>
         <span class="ounce-value" id="local-ounce">جاري جلب السعر...</span>
@@ -322,7 +319,6 @@
 
     <div class="update-time" id="update-time">تحديث فوري وتلقائي...</div>
 
-    <!-- قسم الرسم البياني -->
     <div class="chart-card">
         <div class="tradingview-widget-container">
             <div id="tradingview_gold_live" style="height: 100%;"></div>
@@ -346,27 +342,23 @@
         </div>
     </div>
 
-    <!-- كارت من نحن -->
     <div class="info-card">
         <h3>من نحن</h3>
-        <p>نحن وجهتكم الأولى لعيارات الذهب والمجوهرات الراقية، نلتزم بتقديم أدق الأسعار المباشرة والمحدثة وتقديم أرقى التصاميم التي تجمع بين العراقة والجمال لنلبي كافة الأذواق وثقتكم هي أساس تميزنا.</p>
+        <p>نحن وجهتكم الأولى لعيارات الذهب والمجوهرات الراقية، نلتزم بتقديم أدق الأسعار المباشرة والمحدثة عبر شاشة الذهب وتوفير أرقى التصاميم التي تجمع بين العراقة والجمال.</p>
     </div>
 
-    <!-- كارت نبذة عن المؤسسة -->
     <div class="info-card">
         <h3>نبذة عن المؤسسة وعنوانها</h3>
         <p>مؤسسة جوهرة وازن للذهب والمجوهرات. يسعدنا تشريفكم لنا في فرعنا:<br>المدينة المنورة، سوق المدينة الدولي، بوابة ٣، محل رقم ٣.</p>
     </div>
 
-    <!-- روابط مهمة -->
     <div class="links-section">
         <div class="links-title">روابط مهمة</div>
         <div class="link-item" onclick="openModal('terms-modal')">الشروط والأحكام</div>
         <div class="link-item" onclick="openModal('privacy-modal')">سياسة الخصوصية</div>
-        <a href="https://share.google/aqWvasCapJYNNSZdQ" target="_blank" class="link-item">خريطة الموقع</a>
+        <a href="https://maps.app.goo.gl/mHA17HktusGmtape6?g_st=ic" target="_blank" class="link-item">خريطة الموقع</a>
     </div>
 
-    <!-- أيقونات التواصل الاجتماعي -->
     <div class="social-links">
         <a href="https://www.instagram.com/wazn_0?igsh=MWF6dGxxZmliYWVnNA%3D%3D&utm_source=qr" target="_blank" class="social-icon" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
         <a href="https://snapchat.com/t/HImygwZA" target="_blank" class="social-icon" title="Snapchat"><i class="fa-brands fa-snapchat"></i></a>
@@ -375,7 +367,6 @@
     </div>
 </div>
 
-<!-- نافذة الشروط والأحكام -->
 <div id="terms-modal" class="modal">
     <div class="modal-content">
         <div class="modal-title">الشروط والأحكام</div>
@@ -389,7 +380,6 @@
     </div>
 </div>
 
-<!-- نافذة سياسة الخصوصية -->
 <div id="privacy-modal" class="modal">
     <div class="modal-content">
         <div class="modal-title">سياسة الخصوصية</div>
@@ -403,23 +393,10 @@
 </div>
 
 <script>
-    // وظائف فتح وإغلاق النوافذ المنبثقة
-    function openModal(id) {
-        document.getElementById(id).style.display = 'flex';
-    }
+    function openModal(id) { document.getElementById(id).style.display = 'flex'; }
+    function closeModal(id) { document.getElementById(id).style.display = 'none'; }
+    window.onclick = function(event) { if (event.target.classList.contains('modal')) { event.target.style.display = 'none'; } }
 
-    function closeModal(id) {
-        document.getElementById(id).style.display = 'none';
-    }
-
-    // إغلاق النافذة عند النقر خارجها
-    window.onclick = function(event) {
-        if (event.target.classList.contains('modal')) {
-            event.target.style.display = 'none';
-        }
-    }
-
-    // التحكم في الزيادة/المصنعية للعيارات
     const customMarkup24 = 9.5;  
     const customMarkup21 = 7.84; 
     const customMarkup18 = 6.36; 
@@ -429,9 +406,7 @@
 
     function convertToArabicNumbers(num) {
         const arabicNumbers = ['٠', '١', '٢', '٣', '٤', '٥', '٦', '٧', '٨', '٩'];
-        return num.toString().replace(/[0-9]/g, function (w) {
-            return arabicNumbers[+w];
-        });
+        return num.toString().replace(/[0-9]/g, function (w) { return arabicNumbers[+w]; });
     }
 
     async function calculateGrams() {
@@ -456,13 +431,8 @@
                 let colorClass = "";
 
                 if (lastOuncePrice !== null) {
-                    if (ounceUSD > lastOuncePrice) {
-                        directionMarker = " 🔺";
-                        colorClass = "price-up";
-                    } else if (ounceUSD < lastOuncePrice) {
-                        directionMarker = " 🔻";
-                        colorClass = "price-down";
-                    }
+                    if (ounceUSD > lastOuncePrice) { directionMarker = " 🔺"; colorClass = "price-up"; }
+                    else if (ounceUSD < lastOuncePrice) { directionMarker = " 🔻"; colorClass = "price-down"; }
                 }
                 
                 lastOuncePrice = ounceUSD;
@@ -488,18 +458,13 @@
 
                 if (colorClass) {
                     [ounceEl, g24El, g21El, g18El].forEach(el => el.classList.add(colorClass));
-
                     resetTimeout = setTimeout(() => {
                         ounceEl.innerText = ounceTextClean; 
-                        [ounceEl, g24El, g21El, g18El].forEach(el => {
-                            el.classList.remove('price-up', 'price-down');
-                        });
+                        [ounceEl, g24El, g21El, g18El].forEach(el => { el.classList.remove('price-up', 'price-down'); });
                     }, 3000); 
                 } else {
                     ounceEl.innerText = ounceTextClean;
-                    [ounceEl, g24El, g21El, g18El].forEach(el => {
-                        el.classList.remove('price-up', 'price-down');
-                    });
+                    [ounceEl, g24El, g21El, g18El].forEach(el => { el.classList.remove('price-up', 'price-down'); });
                 }
 
                 const now = new Date().toLocaleTimeString('ar-EG');
