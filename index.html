@@ -51,10 +51,10 @@
             background-color: #ffffff;
             color: var(--dark-brown);
             display: flex;
-            justify-content: center;
-            align-items: flex-start;
+            flex-direction: column;
+            align-items: center;
             min-height: 100vh;
-            padding: 20px 15px;
+            padding: 20px 0 0 0;
         }
 
         .container {
@@ -64,6 +64,7 @@
             display: flex;
             flex-direction: column;
             gap: 15px;
+            padding: 0 15px;
         }
 
         .header-block {
@@ -71,15 +72,15 @@
             margin-bottom: 5px;
         }
 
-        .main-title {
-            font-size: 2.2rem;
-            color: var(--brand-red);
-            font-weight: 900;
-            margin-bottom: 5px;
+        .site-logo {
+            max-width: 190px;
+            height: auto;
+            display: block;
+            margin: 0 auto 10px auto;
         }
 
         .sub-title {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             color: var(--gold-primary);
             font-weight: bold;
         }
@@ -149,6 +150,151 @@
             width: 100%;
             height: 100%;
         }
+
+        /* ------------------------------------------------ */
+        /* تنسيقات حاسبة الشراء والبيع */
+        /* ------------------------------------------------ */
+        .calc-card {
+            border: 2px solid var(--gold-primary);
+            border-radius: 16px;
+            padding: 15px;
+            background: #ffffff;
+            color: var(--dark-brown);
+        }
+
+        .calc-tabs {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .tab-btn {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid var(--gold-primary);
+            background-color: #fff;
+            color: var(--gold-primary);
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .tab-btn.active {
+            background-color: var(--gold-primary);
+            color: #fff;
+        }
+
+        .calc-body {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            text-align: right;
+        }
+
+        .form-group label {
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+
+        .form-control {
+            padding: 10px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 0.95rem;
+            outline: none;
+            width: 100%;
+        }
+
+        .form-control:focus {
+            border-color: var(--gold-primary);
+        }
+
+        .calc-result {
+            background-color: var(--bg-custom);
+            border-radius: 8px;
+            padding: 12px;
+            text-align: center;
+            margin-top: 5px;
+            border: 1px dashed var(--gold-primary);
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .result-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.9rem;
+            color: var(--text-gray);
+        }
+
+        .result-row.total {
+            border-top: 1px solid var(--border-color);
+            padding-top: 8px;
+            margin-top: 4px;
+            font-weight: bold;
+            color: var(--brand-red);
+            font-size: 1.1rem;
+        }
+
+        .result-title {
+            font-size: 0.85rem;
+            color: var(--text-gray);
+        }
+
+        .result-value {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--brand-red);
+        }
+
+        .calc-warning {
+            font-size: 0.78rem;
+            color: var(--down-red);
+            margin-top: 8px;
+            line-height: 1.4;
+            background: #fff5f5;
+            padding: 8px;
+            border-radius: 6px;
+            border-right: 3px solid var(--down-red);
+        }
+
+        /* ------------------------------------------------ */
+        /* معرض الصور المتحرك (Slider) */
+        /* ------------------------------------------------ */
+        .slider-card {
+            border: 2px solid var(--border-color);
+            border-radius: 16px;
+            overflow: hidden;
+            position: relative;
+            width: 100%;
+            height: 200px;
+            background: var(--bg-custom);
+        }
+
+        .slider-track {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slide {
+            min-width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* ------------------------------------------------ */
 
         .info-card {
             border: 2px solid var(--border-color);
@@ -231,6 +377,18 @@
             margin-top: -5px;
         }
 
+        /* شريط حقوق الملكية */
+        .copyright-bar {
+            width: 100%;
+            background-color: var(--dark-brown);
+            color: #ffffff;
+            text-align: center;
+            padding: 15px 10px;
+            font-size: 0.85rem;
+            margin-top: 25px;
+            border-top: 3px solid var(--gold-primary);
+        }
+
         .modal {
             display: none;
             position: fixed;
@@ -293,8 +451,15 @@
 
 <div class="container">
     <div class="header-block">
-        <h1 class="main-title">جوهرة وازن</h1>
-        <div class="sub-title">أسعار الذهب مباشرة - شاشة الذهب الحية</div>
+        <!-- ========================================================= -->
+        <!-- ضع رابط الصورة هنا داخل src="..." -->
+        <!-- مثال لو رفعت الصورة في Issues في GitHub: -->
+        <!-- src="https://github.com/user-attachments/assets/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" -->
+        <!-- مثال لو رفعت الصورة بنفس اسم logo.png في GitHub: -->
+        <!-- src="logo.png" -->
+        <!-- ========================================================= -->
+        <img src="20260726202848_445_بدون اسم.png" alt="شعار جوهرة وازن" class="site-logo">
+        <div class="sub-title">أسعار الذهب مباشرة</div>
     </div>
 
     <div class="ounce-card">
@@ -342,6 +507,101 @@
         </div>
     </div>
 
+    <!-- ========================================================= -->
+    <!-- حاسبة أسعار الشراء والبيع الفورية -->
+    <!-- ========================================================= -->
+    <div class="calc-card">
+        <div class="calc-tabs">
+            <button class="tab-btn active" id="tab-buy-btn" onclick="switchTab('buy')">حاسبة الشراء (من المحل)</button>
+            <button class="tab-btn" id="tab-sell-btn" onclick="switchTab('sell')">حاسبة البيع (للمحل)</button>
+        </div>
+
+        <!-- قسم الشراء -->
+        <div id="buy-section" class="calc-body">
+            <div class="form-group">
+                <label>اختر العيار:</label>
+                <select id="buy-karat" class="form-control" onchange="handleBuyKaratChange()">
+                    <option value="24">عيار 24 (سبائك)</option>
+                    <option value="21" selected>عيار 21 (مجوهرات)</option>
+                    <option value="18">عيار 18 (مجوهرات)</option>
+                </select>
+            </div>
+
+            <!-- خيارات عيار 24 -->
+            <div id="buy-24-options" class="form-group" style="display: none;">
+                <label>اختر الوزن (جرام):</label>
+                <select id="buy-weight-24" class="form-control" onchange="calculateBuyPrice()">
+                    <option value="1">1 جرام</option>
+                    <option value="2.5">2.5 جرام</option>
+                    <option value="5">5 جرام</option>
+                    <option value="10">10 جرام</option>
+                    <option value="15.55">15.55 جرام (نصف أونصة)</option>
+                    <option value="20">20 جرام</option>
+                    <option value="31.1">31.1 جرام (أونصة)</option>
+                    <option value="50">50 جرام</option>
+                    <option value="100">100 جرام</option>
+                    <option value="250">250 جرام</option>
+                    <option value="500">500 جرام</option>
+                    <option value="1000">1000 جرام (كيلو)</option>
+                </select>
+            </div>
+
+            <!-- خيارات عيار 21 و 18 -->
+            <div id="buy-jewelry-options" class="form-group">
+                <label>طريقة الحساب:</label>
+                <select id="buy-calc-type" class="form-control" onchange="handleBuyTypeChange()">
+                    <option value="weight">أريد الشراء حسب (الوزن بالجرام)</option>
+                    <option value="budget">لدي مبلغ محدد (بالريال)</option>
+                </select>
+            </div>
+
+            <div id="buy-weight-input-group" class="form-group">
+                <label id="buy-input-label">الوزن المطلوب (جرام):</label>
+                <input type="number" id="buy-input-val" class="form-control" placeholder="أدخل الكمية..." oninput="calculateBuyPrice()">
+            </div>
+
+            <div class="calc-result" id="buy-result-box">
+                <!-- يتم توليد المخرجات ديناميكياً هنا -->
+            </div>
+        </div>
+
+        <!-- قسم البيع -->
+        <div id="sell-section" class="calc-body" style="display: none;">
+            <div class="form-group">
+                <label>اختر العيار المراد بيعه:</label>
+                <select id="sell-karat" class="form-control" onchange="calculateSellPrice()">
+                    <option value="24">عيار 24</option>
+                    <option value="21" selected>عيار 21</option>
+                    <option value="18">عيار 18</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>وزن القطعة (جرام):</label>
+                <input type="number" id="sell-weight" class="form-control" placeholder="أدخل الوزن بالجرام..." oninput="calculateSellPrice()">
+            </div>
+
+            <div class="calc-result">
+                <div class="result-title">المبلغ التقديري لاستلامه:</div>
+                <div class="result-value" id="sell-result-value">٠ ر.س</div>
+            </div>
+
+            <div class="calc-warning">
+                ⚠️ <strong>تنبيه:</strong> هذا السعر تقديري بناءً على الذهب الخالص. قد يختلف السعر النهائي داخل المعرض في حال وجود أحجار أو فصوص أو اختلاف في دقة العيار.
+            </div>
+        </div>
+    </div>
+    <!-- ========================================================= -->
+
+    <!-- معرض الصور المتحرك تحت الحاسبة -->
+    <div class="slider-card">
+        <div class="slider-track" id="slider-track">
+            <img class="slide" src="https://images.unsplash.com/photo-1611591475170-435d702315c1?auto=format&fit=crop&w=600&q=80" alt="مجوهرات 1">
+            <img class="slide" src="https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=600&q=80" alt="مجوهرات 2">
+            <img class="slide" src="https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=600&q=80" alt="مجوهرات 3">
+        </div>
+    </div>
+
     <div class="info-card">
         <h3>من نحن</h3>
         <p>نحن وجهتكم الأولى لعيارات الذهب والمجوهرات الراقية، نلتزم بتقديم أدق الأسعار المباشرة والمحدثة عبر شاشة الذهب وتوفير أرقى التصاميم التي تجمع بين العراقة والجمال.</p>
@@ -365,6 +625,11 @@
         <a href="https://www.tiktok.com/@wazn_0?_r=1&_t=ZS-98CZT4sAd0S" target="_blank" class="social-icon" title="TikTok"><i class="fa-brands fa-tiktok"></i></a>
         <a href="https://wa.me/message/EAMACJJFJFBQL1" target="_blank" class="social-icon" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
     </div>
+</div>
+
+<!-- شريط حقوق الملكية -->
+<div class="copyright-bar">
+    جميع الحقوق محفوظة © مؤسسة جوهرة وازن للذهب والمجوهرات
 </div>
 
 <div id="terms-modal" class="modal">
@@ -397,9 +662,29 @@
     function closeModal(id) { document.getElementById(id).style.display = 'none'; }
     window.onclick = function(event) { if (event.target.classList.contains('modal')) { event.target.style.display = 'none'; } }
 
+    /* كود تحريك السلايدر تلقائياً */
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const track = document.getElementById('slider-track');
+
+    function nextSlide() {
+        if (slides.length === 0) return;
+        currentSlide = (currentSlide + 1) % slides.length;
+        track.style.transform = `translateX(${currentSlide * 100}%)`;
+    }
+    setInterval(nextSlide, 3500);
+
     const customMarkup24 = 9.5;  
     const customMarkup21 = 7.84; 
     const customMarkup18 = 6.36; 
+
+    let currentG24 = 0;
+    let currentG21 = 0;
+    let currentG18 = 0;
+
+    let pureG24Val = 0;
+    let pureG21Val = 0;
+    let pureG18Val = 0;
 
     let lastOuncePrice = null;
     let resetTimeout = null; 
@@ -419,13 +704,13 @@
                 const usdToSar = 3.75; 
                 const ounceSAR = ounceUSD * usdToSar; 
                 
-                const pureG24 = ounceSAR / 31.1034768;
-                const pureG21 = pureG24 * 0.875;
-                const pureG18 = pureG24 * 0.75;
+                pureG24Val = ounceSAR / 31.1034768;
+                pureG21Val = pureG24Val * 0.875;
+                pureG18Val = pureG24Val * 0.75;
 
-                const g24 = pureG24 + customMarkup24;
-                const g21 = pureG21 + customMarkup21;
-                const g18 = pureG18 + customMarkup18;
+                currentG24 = pureG24Val + customMarkup24;
+                currentG21 = pureG21Val + customMarkup21;
+                currentG18 = pureG18Val + customMarkup18;
 
                 let directionMarker = "";
                 let colorClass = "";
@@ -440,9 +725,9 @@
                 const ounceTextWithMarker = convertToArabicNumbers(Math.round(ounceUSD).toLocaleString()) + " دولار" + directionMarker;
                 const ounceTextClean = convertToArabicNumbers(Math.round(ounceUSD).toLocaleString()) + " دولار";
 
-                const g24Text = convertToArabicNumbers(g24.toFixed(2)) + " ر.س";
-                const g21Text = convertToArabicNumbers(g21.toFixed(2)) + " ر.س";
-                const g18Text = convertToArabicNumbers(g18.toFixed(2)) + " ر.س";
+                const g24Text = convertToArabicNumbers(currentG24.toFixed(2)) + " ر.س";
+                const g21Text = convertToArabicNumbers(currentG21.toFixed(2)) + " ر.س";
+                const g18Text = convertToArabicNumbers(currentG18.toFixed(2)) + " ر.س";
 
                 const ounceEl = document.getElementById('local-ounce');
                 const g24El = document.getElementById('price-g24');
@@ -469,10 +754,172 @@
 
                 const now = new Date().toLocaleTimeString('ar-EG');
                 document.getElementById('update-time').innerText = "آخر تحديث للأسعار الحية: " + now;
+
+                calculateBuyPrice();
+                calculateSellPrice();
             }
         } catch (e) {
             console.log("جاري إعادة محاولة جلب التحديثات...");
         }
+    }
+
+    function switchTab(type) {
+        const buyBtn = document.getElementById('tab-buy-btn');
+        const sellBtn = document.getElementById('tab-sell-btn');
+        const buySec = document.getElementById('buy-section');
+        const sellSec = document.getElementById('sell-section');
+
+        if (type === 'buy') {
+            buyBtn.classList.add('active');
+            sellBtn.classList.remove('active');
+            buySec.style.display = 'flex';
+            sellSec.style.display = 'none';
+        } else {
+            sellBtn.classList.add('active');
+            buyBtn.classList.remove('active');
+            sellSec.style.display = 'flex';
+            buySec.style.display = 'none';
+        }
+    }
+
+    function handleBuyKaratChange() {
+        const karat = document.getElementById('buy-karat').value;
+        const opts24 = document.getElementById('buy-24-options');
+        const optsJewelry = document.getElementById('buy-jewelry-options');
+        const inputGroup = document.getElementById('buy-weight-input-group');
+
+        if (karat === '24') {
+            opts24.style.display = 'flex';
+            optsJewelry.style.display = 'none';
+            inputGroup.style.display = 'none';
+        } else {
+            opts24.style.display = 'none';
+            optsJewelry.style.display = 'flex';
+            inputGroup.style.display = 'flex';
+            handleBuyTypeChange();
+        }
+        calculateBuyPrice();
+    }
+
+    function handleBuyTypeChange() {
+        const type = document.getElementById('buy-calc-type').value;
+        const label = document.getElementById('buy-input-label');
+        const input = document.getElementById('buy-input-val');
+
+        if (type === 'weight') {
+            label.innerText = "الوزن المطلوب (جرام):";
+            input.placeholder = "أدخل الوزن بالجرام...";
+        } else {
+            label.innerText = "المبلغ المتوفر (ريال):";
+            input.placeholder = "أدخل المبلغ بالريال...";
+        }
+        calculateBuyPrice();
+    }
+
+    function getSabaikPremiumPerGram(weight) {
+        if (weight <= 1) return 85;       
+        if (weight <= 2.5) return 65;     
+        if (weight <= 5) return 50;       
+        if (weight <= 10) return 40;      
+        if (weight <= 15.55) return 35;   
+        if (weight <= 20) return 30;      
+        if (weight <= 31.1) return 25;    
+        if (weight <= 50) return 22;      
+        if (weight <= 100) return 20;     
+        if (weight <= 250) return 18;     
+        if (weight <= 500) return 16;     
+        return 15;                        
+    }
+
+    const AVG_JEWELRY_MAKING_FEE = 40; 
+    const VAT_RATE = 0.15;
+
+    function calculateBuyPrice() {
+        const karat = document.getElementById('buy-karat').value;
+        const resultBox = document.getElementById('buy-result-box');
+
+        if (karat === '24') {
+            const weight = parseFloat(document.getElementById('buy-weight-24').value) || 0;
+            const premiumPerGram = getSabaikPremiumPerGram(weight);
+            const totalPrice = (pureG24Val + premiumPerGram) * weight;
+            
+            resultBox.innerHTML = `
+                <div class="result-title">الإجمالي التقديري للسبيكة:</div>
+                <div class="result-value">${convertToArabicNumbers(totalPrice.toFixed(2))} ر.س</div>
+            `;
+        } else {
+            const basePrice = karat === '21' ? currentG21 : currentG18;
+            const calcType = document.getElementById('buy-calc-type').value;
+            const val = parseFloat(document.getElementById('buy-input-val').value) || 0;
+
+            const priceWithFee = basePrice + AVG_JEWELRY_MAKING_FEE;
+
+            if (val <= 0) {
+                resultBox.innerHTML = `
+                    <div class="result-title">السعر التقديري:</div>
+                    <div class="result-value">٠ ر.س</div>
+                `;
+                return;
+            }
+
+            if (calcType === 'weight') {
+                const subTotal = val * priceWithFee;
+                const vatAmount = subTotal * VAT_RATE;
+                const grandTotal = subTotal + vatAmount;
+
+                resultBox.innerHTML = `
+                    <div class="result-row">
+                        <span>المبلغ قبل الضريبة:</span>
+                        <span>${convertToArabicNumbers(subTotal.toFixed(2))} ر.س</span>
+                    </div>
+                    <div class="result-row">
+                        <span>ضريبة القيمة المضافة (١٥٪):</span>
+                        <span>${convertToArabicNumbers(vatAmount.toFixed(2))} ر.س</span>
+                    </div>
+                    <div class="result-row total">
+                        <span>الإجمالي التقديري النهائـي:</span>
+                        <span>${convertToArabicNumbers(grandTotal.toFixed(2))} ر.س</span>
+                    </div>
+                `;
+            } else {
+                const totalWithVatRate = priceWithFee * (1 + VAT_RATE);
+                const estGrams = val / totalWithVatRate;
+                const subTotal = estGrams * priceWithFee;
+                const vatAmount = subTotal * VAT_RATE;
+
+                resultBox.innerHTML = `
+                    <div class="result-row">
+                        <span>الوزن التقريبي الشامل:</span>
+                        <span>${convertToArabicNumbers(estGrams.toFixed(2))} جرام</span>
+                    </div>
+                    <div class="result-row">
+                        <span>المبلغ قبل الضريبة:</span>
+                        <span>${convertToArabicNumbers(subTotal.toFixed(2))} ر.س</span>
+                    </div>
+                    <div class="result-row">
+                        <span>ضريبة القيمة المضافة (١٥٪):</span>
+                        <span>${convertToArabicNumbers(vatAmount.toFixed(2))} ر.س</span>
+                    </div>
+                    <div class="result-row total">
+                        <span>الإجمالي التقديري:</span>
+                        <span>${convertToArabicNumbers(val.toFixed(2))} ر.س</span>
+                    </div>
+                `;
+            }
+        }
+    }
+
+    function calculateSellPrice() {
+        const karat = document.getElementById('sell-karat').value;
+        const weight = parseFloat(document.getElementById('sell-weight').value) || 0;
+        const resultEl = document.getElementById('sell-result-value');
+
+        let pricePerGram = pureG21Val;
+        if (karat === '24') pricePerGram = pureG24Val;
+        if (karat === '18') pricePerGram = pureG18Val;
+
+        const total = weight * pricePerGram;
+        resultEl.innerText = convertToArabicNumbers(total.toFixed(2)) + " ر.س";
     }
 
     calculateGrams();
