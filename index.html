@@ -30,7 +30,6 @@
     <!-- صورة الموقع على محرك البحث -->
     <link rel="icon" type="image/png" href="Q50.PNG">
 
-
     <!-- FontAwesome للأيقونات -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -681,10 +680,21 @@
         track.style.transform = `translateX(${currentSlide * 100}%)`;
     }
     setInterval(nextSlide, 5500);
+    //============================
+    //الزيادة على سعر الشاشة👇🏻
+    //============================
 
     const customMarkup24 = 0;  
     const customMarkup21 = 0; 
     const customMarkup18 = 0; 
+
+    // ============================================
+    // الخصم/الخصم بالسالب لحاسبة البيع (بالريال لكل جرام)
+    // يمكنك تعديل القيمة هنا للتحكم بمقدار الخصم لكل عيار
+    // ============================================
+    const sellDiscount24 = 5; // خصم 5 ريال من سعر جرام 24 عند البيع للمحل
+    const sellDiscount21 = 10; // خصم 4 ريال من سعر جرام 21 عند البيع للمحل
+    const sellDiscount18 = 10; // خصم 3 ريال من سعر جرام 18 عند البيع للمحل
 
     let currentG24 = 0;
     let currentG21 = 0;
@@ -923,10 +933,20 @@
         const resultEl = document.getElementById('sell-result-value');
 
         let pricePerGram = pureG21Val;
-        if (karat === '24') pricePerGram = pureG24Val;
-        if (karat === '18') pricePerGram = pureG18Val;
+        let discount = sellDiscount21;
 
-        const total = weight * pricePerGram;
+        if (karat === '24') {
+            pricePerGram = pureG24Val;
+            discount = sellDiscount24;
+        } else if (karat === '18') {
+            pricePerGram = pureG18Val;
+            discount = sellDiscount18;
+        }
+
+        // تطبيق الخصم من سعر الجرام اللحظي (تأكد أن السعر لا ينزل عن صفر)
+        const finalPricePerGram = Math.max(0, pricePerGram - discount);
+        const total = weight * finalPricePerGram;
+
         resultEl.innerText = convertToArabicNumbers(total.toFixed(2)) + " ر.س";
     }
 
